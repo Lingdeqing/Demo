@@ -1,0 +1,17 @@
+<script type="text/javascript">
+	console.log('Yo.'.startsWith('Y'))
+	console.log('Yo.'.includes('o'))
+	console.log('Yo.'.endsWith('o'))
+	console.log('Yo.'.repeat(300))
+
+	let title = '一个标题';
+	let tip = '一条说明';
+	let tpl = `
+	<div>
+		<span>${title + `
+			<span>${tip}</span> + 
+			` }</span>
+	</div>
+	`;
+	console.log(tpl)
+</script>

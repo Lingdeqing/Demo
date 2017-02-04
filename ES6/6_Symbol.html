@@ -1,0 +1,18 @@
+<script type="text/javascript">
+	let a = Symbol();
+	let b = Symbol();
+	console.log(a === b);
+
+	//file1
+	var mod1 = {};
+	{
+		let name = Symbol();
+		mod1[name] = 'file1';
+	}
+
+	//file2
+	let name = Symbol();
+	mod1[name] = 'file2';
+	console.log(mod1[name]);//file2 可以重写name，不过重写的name只在file2中起作用，不会影响的到file1中的代码
+	console.log(mod1)
+</script>

@@ -1,0 +1,21 @@
+<script type="text/javascript">
+	function* test(){
+		console.log('start');
+		yield;
+		console.log('end');
+	}
+	var fun = test();
+	fun.next();
+	fun.next();
+
+	function* doSomething () {
+		while(true){
+			yield Math.random() * 100;
+		}
+	}
+	var foo = doSomething();
+	var ret = 0;
+	while(ret < 50){
+		console.log(ret = foo.next().value);
+	}
+</script>

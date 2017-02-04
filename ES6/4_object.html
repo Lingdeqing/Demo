@@ -1,0 +1,73 @@
+<script type="text/javascript">
+	// let obj = {
+	// 	a:1,
+	// 	b:2
+	// };
+	// let {a, b} = obj;
+	// console.log('a:'+a);
+	// console.log('b:'+b);
+
+	// let obj = {
+	// 	a:1,
+	// 	b:2
+	// };
+	// let {c, b} = obj;
+	// console.log('c:'+c);
+	// console.log('b:'+b);
+
+	// let obj = {
+	// 	a:1,
+	// 	b:2
+	// };
+	// let {a:A, b} = obj;
+	// console.log('A:'+A);
+	// console.log('b:'+b);
+
+	// let obj = {
+	// 	a:1,
+	// 	b:2
+	// };
+	// let a;
+	// ({a, b} = obj);
+	// console.log('a:'+a);
+	// console.log('b:'+b);
+
+	// let obj = {
+	// 	arr:[
+	// 		'YOYOYO',
+	// 		{
+	// 			a:1
+	// 		}
+	// 	]
+	// };
+	// let {arr:[greet, {a}]} = obj;
+	// console.log('a:'+a);
+	// console.log('greet:'+greet);
+
+	// let {a:A=2, b=3} = {a:1};
+	// console.log('A:'+A);
+	// console.log('b:'+b);
+
+	// let {floor, pow} = Math;
+	// console.log('floor(1.5):'+floor(1.5))
+	// console.log('pow(2, 3):'+pow(2, 3))
+
+	// let {length} = 'abc';
+	// console.log('length:'+length)
+	// let [a,b,c]='efg';
+	// console.log(a, b, c)
+
+	// let arr = [1, 2];
+	// function test ([a, b]) {
+	// 	console.log('a:'+a);
+	// 	console.log('b:'+b);
+	// }
+	// test(arr);
+
+	let obj = {b:2};
+	function test ({a= 10, b}) {
+		console.log('a:'+a);
+		console.log('b:'+b);
+	}
+	test(obj);
+</script>
