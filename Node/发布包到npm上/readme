@@ -1,0 +1,5 @@
+1.编写模块
+2.npm init生成package.json
+3.npm adduser创建npm用户
+4.npm publish .发布
+5.npm install安装包
