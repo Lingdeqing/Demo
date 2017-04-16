@@ -1,0 +1,5 @@
+//require('module2')
+require('module1')
+require('module3')
+require('module4')
+console.log(module.paths)
