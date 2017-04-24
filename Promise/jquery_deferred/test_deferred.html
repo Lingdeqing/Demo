@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script type="text/javascript" src="jquery-1.7.js"></script>
+<script type="text/javascript">
+
+    //    //过滤函数（pipe）返回值不是异步队列
+    //    function fn1(data) {
+    //        console.log('fn1', data);
+    //    }
+    //    function fn2(data) {
+    //        console.log('fn2', data);
+    //    }
+    //    var defer = $.Deferred();
+    //    filter = defer.pipe(function (value) {
+    //        return value * 2;
+    //    })
+    //    defer.done(fn1);
+    //    filter.done(fn2);
+    //    defer.resolve(5);
+
+    //过滤函数(pipe)返回值是异步队列
+    function fn1(data) {
+        console.log('fn1', JSON.stringify(data))
+    }
+    function fn2(data) {
+        console.log('fn2', JSON.stringify(data))
+    }
+
+    function fn3(data) {
+        console.log('fn3', JSON.stringify(data))
+    }
+
+    var request = $.getJSON('test.json')
+        .done(fn1);
+    var chained = request.pipe(function (data) {
+        return $.getJSON('test2.json')
+            .done(fn2);
+    }).done(fn3);
+</script>
+</body>
+</html>

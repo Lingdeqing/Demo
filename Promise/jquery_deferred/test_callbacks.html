@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script type="text/javascript" src="jquery-1.7.js"></script>
+<script type="text/javascript">
+    //    //默认模式
+    //    var callbacks = $.Callbacks();
+    //    var something = true;
+    //    function fn1(args) {
+    //        console.log('fn1', args);
+    //        if(something){
+    //            callbacks.fire('测试：执行过程中，第2次触发');
+    //            callbacks.fire('测试：执行过程中，第3次触发');
+    //            something = false;
+    //        }
+    //    }
+    //    callbacks.add(fn1);
+    //    callbacks.fire('测试：第1次触发'); //多次触发
+
+//    //once模式
+//    var callbacks = $.Callbacks('once');
+//    function fn1(args) {
+//        console.log('fn1', args)
+//    }
+//    function fn2(args) {
+//        console.log('fn2', args)
+//    }
+//    callbacks.add(fn1);
+//    callbacks.add(fn2);
+//    callbacks.fire('测试：once模式');//导致禁用，回调函数列表被禁用
+//    console.log('是否被禁用？', callbacks.disabled() );
+
+//    //once + stopOnFalse模式
+//    var callbacks = $.Callbacks('once stopOnFalse');
+//    function fn1(args) {
+//        console.log('fn1', args);
+//        return false;
+//    }
+//    function fn2(args) {
+//        console.log('fn2', args);
+//    }
+//    callbacks.add(fn1);
+//    callbacks.add(fn2);
+//    callbacks.fire('测试：once + stopOnFalse模式');  //禁用
+//    console.log('是否已被禁用?', callbacks.disabled() );
+
+//    //once + memory  模式
+//    var callbacks = $.Callbacks('once memory');
+//    function fn1(args) {
+//        console.log('fn1', args)
+//    }
+//    function fn2(args) {
+//        console.log('fn2', args)
+//    }
+//    callbacks.add(fn1);
+//    callbacks.fire('测试：once + memory 模式');  //导致清空数组 list
+//    callbacks.add(fn2); //依然会执行
+
+//    //测试执行中添加回调函数
+//    var callbacks = $.Callbacks();
+//    function fn1(args) {
+//        console.log('fn1', args);
+//        console.log('fn1 before add fn2');
+//        callbacks.add(fn2);
+//        console.log('fn1 after add fn2');
+//    }
+//    function fn2(args) {
+//        console.log('fn2', args);
+//    }
+//    callbacks.add(fn1);
+//    callbacks.fire('测试：正在执行中，添加回调函数');
+
+//    //memory模式、触发过、未在执行中，添加的回调函数立即执行
+//    var callbacks = $.Callbacks('memory');
+//    callbacks.fire('memory模式、触发过、未在执行中，添加的回调函数立即执行');
+//    function fn1(args) {
+//        console.log('fn1', args)
+//    }
+//    callbacks.add(fn1);
+
+    //移除回调函数，正在执行中，待移除的函数已执行
+    var callbacks = $.Callbacks();
+    function fn1(args) {
+        console.log('fn1', args)
+    }
+    function fn2(args) {
+        console.log('fn2', args);
+        console.log('before remove fn1');
+        callbacks.remove(fn1);
+        console.log('after remove fn1');
+        console.log('before remove fn3');
+        callbacks.remove(fn3);
+        console.log('after remove fn1');
+    }
+    function fn3(args) {
+        console.log('fn3', args)
+    }
+    callbacks.add(fn1);
+    callbacks.add(fn2);
+    callbacks.add(fn3);
+    callbacks.fire('测试：移除回调函数，正在执行中，待移除函数已执行');
+
+</script>
+</body>
+</html>
